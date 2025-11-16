@@ -15,7 +15,6 @@ section{
     padding:80px 10%;
 }
 
-
 /* ----------------------------------------------------
    HEADER
 ---------------------------------------------------- */
@@ -29,22 +28,18 @@ header{
     background:transparent;
     z-index:1000;
 }
-
 .logo{
     font-size:24px;
     font-weight:700;
 }
-.logo span{
-    color:#00e0c6;
-}
+.logo span{ color:#00e0c6; }
 
-/* NAV LINKS (Desktop) */
+/* NAV LINKS */
 .nav-links{
     display:flex;
     align-items:center;
     gap:25px;
 }
-
 .nav-links a{
     color:white;
     text-decoration:none;
@@ -65,8 +60,6 @@ header{
     font-size:14px;
 }
 
-
-
 /* ----------------------------------------------------
    HAMBURGER MENU
 ---------------------------------------------------- */
@@ -76,7 +69,6 @@ header{
     gap:5px;
     cursor:pointer;
 }
-
 .hamburger span{
     width:26px;
     height:3px;
@@ -84,22 +76,15 @@ header{
     border-radius:3px;
 }
 
-
-
 /* ----------------------------------------------------
    MOBILE NAV
 ---------------------------------------------------- */
 @media(max-width:900px){
+    .hamburger{ display:flex; }
 
-    /* Show hamburger */
-    .hamburger{
-        display:flex;
-    }
-
-    /* Hide nav by default */
     .nav-links{
         position:absolute;
-        top:60px; 
+        top:60px;
         left:0;
         width:100%;
         background:#111;
@@ -118,8 +103,6 @@ header{
     }
 }
 
-
-
 /* ----------------------------------------------------
    HERO SECTION
 ---------------------------------------------------- */
@@ -129,29 +112,26 @@ header{
     align-items:center;
     justify-content:space-between;
     gap:40px;
-    padding:100px 10% 60px;  /* Correct alignment under header */
+    padding:100px 10% 60px;
 }
 
+/* TEXT */
 .hero-text{
     width:50%;
     transform: translate(0rem,-5rem);
 }
-
 .hero-text h2{
     font-size:50px;
     font-weight:700;
     line-height:1.2;
 }
-
 .hero-text h2 span{
     color:#00e0c6;
 }
-
 .hero-text p{
     opacity:0.8;
     margin:15px 0 25px;
 }
-
 .hero-text button{
     padding:12px 28px;
     background:#00e0c6;
@@ -165,33 +145,39 @@ header{
 /* HERO IMAGE */
 .hero-img{
     width:35%;
+    opacity:0;
+    transform:translateY(20px) scale(.98);
+    animation: heroEnter 1.2s cubic-bezier(.2,.85,.2,1) forwards;
+}
+@keyframes heroEnter {
+    to {
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
 }
 .hero-img img{
     width:100%;
     border-radius:20px;
-    transform: translate(-2rem,-4rem);
+    transform: translate(0rem,-4rem);
+    /* Hover animation removed as requested */
 }
 
-
-
-/* ----------------------- MOBILE HERO FIX ----------------------- */
+/* ---------------- MOBILE HERO ---------------- */
 @media(max-width:900px){
-
     .hero{
         flex-direction:column-reverse;
         text-align:center;
-        padding:130px 5% 60px; /* Perfect spacing under header */
+        padding:130px 5% 60px;
     }
 
-    .hero-text, 
-    .hero-img{
+    .hero-text, .hero-img{
         width:100%;
     }
 
     .hero-img img{
         width:85%;
         margin:auto;
-        transform: translate(0.2rem,-4rem);
+        transform:none;
     }
 
     .hero-text h2{
@@ -199,28 +185,23 @@ header{
     }
 }
 
-
-
 /* ----------------------------------------------------
-   ABOUT SECTION
+   ABOUT
 ---------------------------------------------------- */
 .about{
     display:flex;
     align-items:center;
     gap:50px;
 }
-
 .about img{
     width:45%;
     border-radius:15px;
 }
-
 .about-text h3{
     font-size:32px;
     color:#00e0c6;
     margin-bottom:15px;
 }
-
 .about-text p{
     line-height:1.7;
     opacity:0.9;
@@ -236,10 +217,8 @@ header{
     }
 }
 
-
-
 /* ----------------------------------------------------
-   GALLERY SECTION
+   GALLERY
 ---------------------------------------------------- */
 .gallery h3{
     text-align:center;
@@ -247,13 +226,11 @@ header{
     color:#00e0c6;
     margin-bottom:35px;
 }
-
 .gallery-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
     gap:22px;
 }
-
 .gallery-grid img{
     width:100%;
     height:330px;
@@ -261,20 +238,16 @@ header{
     border-radius:14px;
     transition:0.3s;
 }
-
 .gallery-grid img:hover{
     transform:scale(1.05);
 }
 
-
-
 /* ----------------------------------------------------
-   CONTACT SECTION
+   CONTACT
 ---------------------------------------------------- */
 .contact{
     text-align:center;
 }
-
 .contact h3{
     font-size:32px;
     color:#00e0c6;
@@ -288,7 +261,6 @@ header{
     flex-direction:column;
     gap:15px;
 }
-
 .contact-form input,
 .contact-form textarea{
     background:#1b1b1b;
@@ -297,11 +269,9 @@ header{
     padding:12px;
     border-radius:10px;
 }
-
 .contact-form textarea{
     min-height:130px;
 }
-
 .contact-form button{
     background:#00e0c6;
     padding:12px;
@@ -311,9 +281,111 @@ header{
     cursor:pointer;
     color:black;
 }
+@media(max-width:900px){
+    .contact-form{ width:90%; }
+}
+
+/* ----------------------------------------------------
+   GLOBAL MICRO-ANIMATIONS
+---------------------------------------------------- */
+*,
+*::before,
+*::after {
+  transition: background-color .26s ease,
+              color .26s ease,
+              border-color .26s ease,
+              box-shadow .26s ease,
+              transform .28s cubic-bezier(.2,.9,.2,1),
+              opacity .26s ease;
+}
+
+/* Hover micro-interactions */
+a:hover, a:focus{ transform:translateY(-2px); }
+button:hover, button:focus{
+    transform:translateY(-3px) scale(1.01);
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+}
+.gallery-grid img:hover{
+    transform:scale(1.04) translateY(-4px);
+}
+
+/* Reveal animations */
+.reveal{
+    opacity:0;
+    transform:translateY(18px) scale(.995);
+}
+.reveal.active{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    transition:transform .56s cubic-bezier(.2,.85,.2,1), opacity .42s;
+}
+
+/* ----------------------------------------------------
+   SKELETON LOADER
+---------------------------------------------------- */
+.site-skeleton{
+  position:fixed;
+  inset:0;
+  z-index:3000;
+  background:linear-gradient(180deg,#0f0f10,#0c0c0d);
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:30px;
+  pointer-events:none;
+  transition:opacity .42s ease;
+}
+.site-skeleton .skel-inner{
+  width:100%;
+  max-width:1200px;
+}
+
+@keyframes skel-shimmer {
+  0%{ background-position:-200% 0; }
+  100%{ background-position:200% 0; }
+}
+
+.skel{
+  border-radius:12px;
+  background:linear-gradient(90deg,rgba(255,255,255,.04),rgba(255,255,255,.06),rgba(255,255,255,.02));
+  background-size:200% 100%;
+  animation:skel-shimmer 1.2s linear infinite;
+}
+
+.skel-header{ height:56px; margin-bottom:20px; }
+
+.skel-hero{ display:flex; gap:20px; margin-bottom:28px; }
+.skel-hero .left{ flex:1; min-height:160px; }
+.skel-hero .right{ width:300px; height:340px; }
+
+.skel-about{ display:flex; gap:20px; margin-bottom:28px; }
+.skel-about .img{ width:45%; height:220px; }
+.skel-about .text{ flex:1; height:220px; }
+
+.skel-gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:16px;
+}
+.skel-thumb{ height:150px; }
+
+.skel-contact{
+  max-width:480px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.skel-contact .row{ height:44px; }
+.skel-contact .textarea{ height:120px; }
+
+.site-skeleton.hidden{
+  opacity:0;
+  visibility:hidden;
+}
 
 @media(max-width:900px){
-    .contact-form{
-        width:90%;
-    }
+  .skel-hero{ flex-direction:column; }
+  .skel-hero .right{ width:85%; height:220px; }
+  .skel-about{ flex-direction:column; }
 }
