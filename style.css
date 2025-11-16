@@ -180,19 +180,22 @@ header{
         width:85%;
         margin:auto;
         transform:none;
-        transform: translate(-0.2rem,-5rem);
+        transform: translate(-0.2rem,-7rem);
     }
 
     .hero-text h2{
         font-size:40px;
-        transform: translate(-0.2rem,-7rem);
+        transform: translate(-0.2rem,-9rem);
     }
 
     .hero-text p {
-        transform: translate(-0.2rem,-7rem);
+        transform: translate(-0.2rem,-9rem);
     }
     .hero-text button{
-        transform: translate(-0.2rem,-8rem);
+        transform: translate(-0.2rem,-9rem);
+    }
+    .hero-text h1{
+        transform: translate(0.2rem,-14rem);
     }
 }
 
