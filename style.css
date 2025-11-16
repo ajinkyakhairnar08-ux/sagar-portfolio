@@ -161,6 +161,7 @@ header{
 .hero-img img{
     width:100%;
     border-radius:20px;
+    transform: translate(0rem,-4rem);
     /* Hover animation removed as requested */
 }
 
